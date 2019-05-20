@@ -26,7 +26,7 @@ jobs:
       displayName: 'Build'
       inputs:
         scriptPath: '$(Build.SourcesDirectory)/scripts/run.py'
-        arguments: '-a prepare build -t webrtc -p winuwp -x x64 -c debug'
+        arguments: '-a prepare build -t webrtc -p win -x x64 -c debug'
         workingDirectory: '$(Build.SourcesDirectory)'
         
     - script: |
@@ -41,5 +41,5 @@ jobs:
       displayName: 'Build'
       inputs:
         scriptPath: '$(Build.SourcesDirectory)/scripts/run.py'
-        arguments: '-a prepare build -t webrtc -p winuwp -x x86 -c debug'
+        arguments: '-a prepare build -t webrtc -p win -x x86 -c debug'
         workingDirectory: '$(Build.SourcesDirectory)'
