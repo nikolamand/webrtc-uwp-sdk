@@ -26,7 +26,7 @@ jobs:
       displayName: 'Build'
       inputs:
         scriptPath: '$(Build.SourcesDirectory)/scripts/run.py'
-        arguments: '-a prepare build -t webrtc -p winuwp -x x64 -c release'
+        arguments: '-a prepare build -t webrtc -p winuwp -x x64 -c debug'
         workingDirectory: '$(Build.SourcesDirectory)'
         
     - script: |
@@ -37,3 +37,9 @@ jobs:
         if exist "%Build_SourcesDirectory%\webrtc\xplatform\webrtc\out" rmdir %Build_SourcesDirectory%\webrtc\xplatform\webrtc\out /S /Q
       displayName: 'Cleaning up intermediates'
       
+    - task: PythonScript@0
+      displayName: 'Build'
+      inputs:
+        scriptPath: '$(Build.SourcesDirectory)/scripts/run.py'
+        arguments: '-a prepare build -t webrtc -p winuwp -x x86 -c debug'
+        workingDirectory: '$(Build.SourcesDirectory)'
